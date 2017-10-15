@@ -31,22 +31,29 @@ int main() {
 
     int n = 3;
     
-    //Sameple input matrix.
+    //Test input matrix.
     int input[3][3] = {
         {1, 2 ,3},
         {4, 5, 6},
         {7, 8, 9}
     };
-    
-    int (*result)[3] = rotate90(input);
-    
+
+    //Allocate 2d array to heap and set it to test matrix.
+    int (*arr)[3] = malloc(sizeof *arr * 3);
+    arr = input;
+
+    rotate90(arr);
+
     //Print the matrix.
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
-            printf("%i", result[i][j]);
+            printf("%i", arr[i][j]);
         }
         printf("\n");
     }
+
+    //Free 2d matrix from heap.
+    free(arr);
 
     return 0;
 }
