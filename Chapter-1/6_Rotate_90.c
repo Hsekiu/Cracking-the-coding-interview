@@ -1,8 +1,3 @@
-#include "stdio.h"
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
-
 int* rotate90(int input[3][3]) {
     int tmp;
     
