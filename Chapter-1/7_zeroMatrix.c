@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 int* zeroMatrix(int input[3][3]) {
     int rows[3];
     int columns[3];
