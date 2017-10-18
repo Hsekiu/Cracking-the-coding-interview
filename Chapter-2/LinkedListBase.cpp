@@ -1,12 +1,12 @@
-#include "LinkedList.h"
+#include "LinkedListBase.h"
 
-LinkedList::LinkedList() {
+LinkedListBase::LinkedListBase() {
     head = NULL;
     tail = NULL;
     size = 0;
 }
 
-void LinkedList::addVal(int n) {
+void LinkedListBase::addVal(int n) {
     node *NewNode = new node();
     NewNode->data = n;
     NewNode->next = NULL;
@@ -20,7 +20,7 @@ void LinkedList::addVal(int n) {
     size++;
 }
 
-void LinkedList::print() {
+void LinkedListBase::print() {
     node *tmp = head;
     while(tmp != nullptr) {
         std::cout << "," << tmp->data;
@@ -29,6 +29,9 @@ void LinkedList::print() {
      std::cout << std::endl;
 }
 
-void LinkedList::removeDupe() {
-    printf("hello");
+void LinkedListBase::removeDupe() {
+}
+
+LinkedListBase::node* LinkedListBase::nthLast(int n) {
+    return nullptr;
 }

@@ -1,19 +1,24 @@
-#include "LinkedList.h"
+#include "LinkedListBase.h"
 #include <unordered_map>
 
-class LinkedListExtension : public LinkedList {
+class LinkedListExtension : public LinkedListBase {
     public:
 
     void removeDupe() {
-        std::unordered_map<int, int> mymap;
+        //Hash table to store each value occurence.
+        std::unordered_map<int, bool> mymap;
         
         node *tmp = head;
         node *prev = nullptr;
+
+        //Go through linked list while next node is not null.
         while(tmp != nullptr) {
+            //If node in hash table it is not unique thus set pointer to next element.
             if(mymap[tmp->data]) {
                 prev->next = tmp->next;
+            //If is unique set it to true in table.
             } else {
-                mymap[tmp->data] = 1;
+                mymap[tmp->data] = true;
                 prev = tmp;
             }
             tmp = tmp->next;

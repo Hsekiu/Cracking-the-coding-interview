@@ -1,10 +1,10 @@
-#ifndef LinkedList_H
-#define LinkedList_H
+#ifndef LinkedListBase_H
+#define LinkedListBase_H
 
 #include <stdio.h>
 #include <iostream>
 
-class LinkedList {
+class LinkedListBase {
 
 public:
 
@@ -15,13 +15,14 @@ public:
     
     int size;
 
-    LinkedList();
+    LinkedListBase();
     void addVal(int n);
     void print();
     void removeDupe();
+    node* nthLast(int n);
     
 protected:
-	
+
 	node *head;
     node *tail;
 };
