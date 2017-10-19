@@ -8,20 +8,23 @@ class LinkedListExtension : public LinkedListBase {
         //Hash table to store each value occurence.
         std::unordered_map<int, bool> mymap;
         
-        node *tmp = head;
+        node *curr = head;
         node *prev = nullptr;
 
         //Go through linked list while next node is not null.
-        while(tmp != nullptr) {
+        while(curr != nullptr) {
             //If node in hash table it is not unique thus set pointer to next element.
-            if(mymap[tmp->data]) {
-                prev->next = tmp->next;
+            if(mymap[curr->data]) {
+                node *tmp = curr;
+                prev->next = curr->next;
+                delete(tmp);
+                size--;
             //If is unique set it to true in table.
             } else {
-                mymap[tmp->data] = true;
-                prev = tmp;
+                mymap[curr->data] = true;
+                prev = curr;
             }
-            tmp = tmp->next;
+            curr = curr->next;
         }
     }
 };
