@@ -17,6 +17,7 @@ public:
 
     LinkedListBase();
     void addVal(int n);
+    void init(int n[], int num);
     void print();
     void removeDupe();
     node* nthLast(int n);

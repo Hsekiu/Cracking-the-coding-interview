@@ -20,6 +20,12 @@ void LinkedListBase::addVal(int n) {
     size++;
 }
 
+void LinkedListBase::init(int n[], int num) {
+    for(int i = 0; i < num; i++) {
+        addVal(n[i]);
+    }
+}
+
 void LinkedListBase::print() {
     node *tmp = head;
     while(tmp != nullptr) {

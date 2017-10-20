@@ -32,13 +32,8 @@ class LinkedListExtension : public LinkedListBase {
 int main() {
     LinkedListExtension list;
     
-    list.addVal(5);
-    list.addVal(10);
-    list.addVal(15);
-    list.addVal(5);
-    list.addVal(1);
-    list.addVal(4);
-    list.addVal(4);
+    int data[] = {5, 10 ,15, 5, 1, 4};
+    list.init(data, sizeof(data)/sizeof(data[0]));
 
     list.print();
     list.removeDupe();
