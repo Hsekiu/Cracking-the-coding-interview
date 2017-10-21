@@ -12,6 +12,7 @@ class LinkedListExtension : public LinkedListBase {
         	middle->data = middle->next->data;
         	middle->next = middle->next->next;
         	delete(tmp);
+        	size--;
     	}
     }
 };
