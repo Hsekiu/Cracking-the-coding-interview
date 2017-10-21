@@ -50,8 +50,8 @@ int main() {
     std::cout << "Addition of List1 and List2 is: ";
     list3->print();
     
-    //delete(list1);
-    //delete(list2);
+    delete(list1);
+    delete(list2);
 
     return 0;
 }
