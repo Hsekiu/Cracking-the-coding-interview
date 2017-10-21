@@ -21,6 +21,8 @@ public:
     void print();
     void removeDupe();
     node* nthLast(int n);
+    void delMiddle(node *middle);
+    node* getHead();
     
 protected:
 

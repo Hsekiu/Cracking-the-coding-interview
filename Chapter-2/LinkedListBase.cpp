@@ -41,3 +41,10 @@ void LinkedListBase::removeDupe() {
 LinkedListBase::node* LinkedListBase::nthLast(int n) {
     return nullptr;
 }
+
+void LinkedListBase::delMiddle(node *middle) {
+}
+
+LinkedListBase::node* LinkedListBase::getHead() {
+    return head;
+}
