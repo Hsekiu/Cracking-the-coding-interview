@@ -6,7 +6,7 @@ class LinkedListExtension : public LinkedListBase {
 
     node* getLoop() {
         //Create hash table of visited nodes.
-        std::unordered_map<LinkedListBase::node*, int> mymap;
+        std::unordered_map<LinkedListBase::node*, bool> mymap;
 
         LinkedListBase::node* tmp = head;
         //Go throught list, if node has not been seen add to hash table if it has return loop.
