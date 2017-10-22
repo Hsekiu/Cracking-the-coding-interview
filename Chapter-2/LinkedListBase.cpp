@@ -35,6 +35,14 @@ void LinkedListBase::print() {
      std::cout << std::endl;
 }
 
+LinkedListBase::node* LinkedListBase::getHead() {
+    return head;
+}
+
+LinkedListBase::node* LinkedListBase::getTail() {
+    return tail;
+}
+
 void LinkedListBase::removeDupe() {
 }
 
@@ -45,6 +53,6 @@ LinkedListBase::node* LinkedListBase::nthLast(int n) {
 void LinkedListBase::delMiddle(node *middle) {
 }
 
-LinkedListBase::node* LinkedListBase::getHead() {
-    return head;
+LinkedListBase::node* LinkedListBase::getLoop() {
+    std::cout << "hmm";
 }

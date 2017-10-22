@@ -19,10 +19,12 @@ public:
     void addVal(int n);
     void init(int n[], int num);
     void print();
+    node* getHead();
+    node* getTail();
     void removeDupe();
     node* nthLast(int n);
     void delMiddle(node *middle);
-    node* getHead();
+    node* getLoop();
     
 protected:
 
