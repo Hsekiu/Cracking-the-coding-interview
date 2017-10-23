@@ -54,5 +54,4 @@ void LinkedListBase::delMiddle(node *middle) {
 }
 
 LinkedListBase::node* LinkedListBase::getLoop() {
-    std::cout << "hmm";
 }
