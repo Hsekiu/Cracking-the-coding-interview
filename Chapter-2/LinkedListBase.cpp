@@ -55,3 +55,13 @@ void LinkedListBase::delMiddle(node *middle) {
 
 LinkedListBase::node* LinkedListBase::getLoop() {
 }
+
+void LinkedListBase::addHead(int n) {
+    node *NewNode = new node();
+    NewNode->data = n;
+    NewNode->next = head;
+    head = NewNode;
+}
+
+bool LinkedListBase::isPalindrome() {
+}

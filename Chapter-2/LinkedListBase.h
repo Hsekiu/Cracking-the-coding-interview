@@ -25,6 +25,8 @@ public:
     node* nthLast(int n);
     void delMiddle(node *middle);
     node* getLoop();
+    void addHead(int n);
+    bool isPalindrome();
     
 protected:
 
