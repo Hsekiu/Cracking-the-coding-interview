@@ -65,3 +65,11 @@ void LinkedListBase::addHead(int n) {
 
 bool LinkedListBase::isPalindrome() {
 }
+
+bool LinkedListBase::updateTail() {
+    node *tmp = head;
+    while(tmp->next != nullptr) {
+        tmp = tmp->next;
+    }
+    tail = tmp;
+}

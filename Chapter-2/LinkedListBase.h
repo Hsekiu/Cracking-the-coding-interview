@@ -27,6 +27,7 @@ public:
     node* getLoop();
     void addHead(int n);
     bool isPalindrome();
+    bool updateTail();
     
 protected:
 
