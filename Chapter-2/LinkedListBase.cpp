@@ -32,7 +32,7 @@ void LinkedListBase::print() {
         std::cout << "," << tmp->data;
         tmp = tmp->next;
     }
-     std::cout << std::endl;
+    std::cout << std::endl;
 }
 
 LinkedListBase::node* LinkedListBase::getHead() {
@@ -61,6 +61,9 @@ void LinkedListBase::addHead(int n) {
     NewNode->data = n;
     NewNode->next = head;
     head = NewNode;
+    if(size == 0) {
+        tail = head;
+    }
 }
 
 bool LinkedListBase::isPalindrome() {
