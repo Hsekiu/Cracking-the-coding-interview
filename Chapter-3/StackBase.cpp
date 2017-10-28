@@ -15,6 +15,14 @@ int StackBase::pop() {
 	return result;
 }
 
+int StackBase::peek() {
+	if(head != NULL) {
+		return head->data;
+	} else {
+		return 0;
+	}
+}
+
 void StackBase::print() {
 	LinkedListBase::print();
 }
