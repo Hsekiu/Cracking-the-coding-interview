@@ -2,6 +2,12 @@
 #include <iostream>
 #include <math.h>
 
+/*
+    Statically allocated stack array. Two stacks grow towards the center
+    the last one fills the center going from left to right. Empty element
+    is 0 thus stack elements cannot be 0.
+*/
+
 class arrStack {
     
     private:
@@ -10,7 +16,19 @@ class arrStack {
         int s2head;
         int s3head;
         int middle;
+        //Varible to help with middle stack tracking and calculations.
         float midCons;
+
+        //Find position of next element in middle stack.
+        int cenCalc() {
+            int midPos;
+            if(ceil(midCons) == midCons) {
+                 midPos = midCons;  
+            } else {
+                midPos = -1*ceil(midCons);
+            }
+            return midPos;
+        }
     
     public:
 
@@ -39,22 +57,20 @@ class arrStack {
         
         int pop(int list) {
             int tmp;
+            //Left stack
             if(list == 1) {
                 tmp = stack[s1head - 1];
                 stack[s1head - 1] = 0;
                 s1head--;
                 return tmp;
+            //Middle stack
             } else if(list == 2) {
-                int midPos;
                 midCons -= 0.5;
-                if(ceil(midCons) == midCons) {
-                    midPos = midCons;  
-                } else {
-                    midPos = -1*ceil(midCons);
-                }
+                int midPos = cenCalc();
                 tmp = stack[middle + midPos];
                 stack[middle + midPos] = 0;
                 return tmp;
+            //End stack
             } else if(list == 3) {
                 tmp = stack[s3head + 1];
                 stack[s3head + 1] = 0;
@@ -70,12 +86,7 @@ class arrStack {
                 stack[s1head] = data;
                 s1head++;
             } else if (list == 2) {
-                int midPos;
-                if(ceil(midCons) == midCons) {
-                    midPos = midCons;  
-                } else {
-                    midPos = -1*ceil(midCons);
-                }
+                int midPos = cenCalc();
                 midCons += 0.5;
                 stack[middle + midPos] = data;
                 s2head = middle + midPos;

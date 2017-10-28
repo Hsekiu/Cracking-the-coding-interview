@@ -16,10 +16,5 @@ int StackBase::pop() {
 }
 
 void StackBase::print() {
-	node *tmp = head;
-    while(tmp != nullptr) {
-        std::cout << "," << tmp->data;
-        tmp = tmp->next;
-    }
-    std::cout << std::endl;
+	LinkedListBase::print();
 }
