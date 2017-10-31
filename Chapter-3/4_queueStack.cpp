@@ -12,11 +12,9 @@ class myQueue : public StackBase {
 
     public:
 
-    void init (int n[], int num) {
+    void init(int n[], int num) {
+        inStack.init(n, num);
         size = num;
-        for(int i = 0; i < num; i++) {
-            inStack.push(n[i]);
-        }
     }
 
     void add(int data) {
@@ -94,10 +92,10 @@ int main() {
     std::cout << "Adding 12 to Queue: ";
     queue.add(12);
     queue.print();
-	std::cout << "Removing oldest element: " << queue.remove() << std::endl;
+    std::cout << "Removing oldest element: " << queue.remove() << std::endl;
     std::cout << "Removing oldest element: " << queue.remove() << std::endl;
     std::cout << "Queue is: ";
-	queue.print();
+    queue.print();
     std::cout << "Top element is: " << queue.peek() << std::endl;
     std::cout << "Is the queue empty? " << (queue.isEmpty() ? "true" : "false") << std::endl;
 	return 0;

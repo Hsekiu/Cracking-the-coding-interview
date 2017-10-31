@@ -3,6 +3,12 @@
 StackBase::StackBase() {
 }
 
+void StackBase::init(int n[], int num) {
+    for(int i = 0; i < num; i++) {
+        push(n[i]);
+    }
+}
+
 void StackBase::push(int data) {
 	addHead(data);
 }
@@ -25,10 +31,6 @@ int StackBase::peek() {
 	} else {
 		 throw std::logic_error("Cannot operate on empty Stack.");
 	}
-}
-
-void StackBase::print() {
-	LinkedListBase::print();
 }
 
 bool StackBase::isEmpty() {

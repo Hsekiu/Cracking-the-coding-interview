@@ -8,10 +8,10 @@ class StackBase : public LinkedListBase {
 public:
     
     StackBase();
+    void init(int n[], int num);
     void push(int data);
     int pop();
     int peek();
-    void print();
     bool isEmpty();
 
 };
