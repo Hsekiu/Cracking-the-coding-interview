@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <stdexcept>
 
 class LinkedListBase {
 

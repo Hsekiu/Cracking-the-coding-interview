@@ -8,6 +8,10 @@ void StackBase::push(int data) {
 }
 
 int StackBase::pop() {
+	if(head == nullptr) {
+		throw std::logic_error("Cannot operate on empty Stack.");
+	}
+
 	node *tmp = head;
 	int result = head->data;
 	head = head->next;
@@ -19,10 +23,14 @@ int StackBase::peek() {
 	if(head != NULL) {
 		return head->data;
 	} else {
-		return 0;
+		 throw std::logic_error("Cannot operate on empty Stack.");
 	}
 }
 
 void StackBase::print() {
 	LinkedListBase::print();
+}
+
+bool StackBase::isEmpty() {
+	return size == 0;
 }

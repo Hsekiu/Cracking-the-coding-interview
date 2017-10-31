@@ -12,6 +12,7 @@ public:
     int pop();
     int peek();
     void print();
+    bool isEmpty();
 
 };
 

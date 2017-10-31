@@ -56,6 +56,24 @@ class myQueue : public StackBase {
         }
     }
 
+    int peek() {
+        for(int i = 0; i < size; i++) {
+            outStack.push(inStack.pop());
+        }
+
+        int result = outStack.peek();
+
+        for(int i = 0; i < size; i++) {
+            inStack.push(outStack.pop());
+        }
+
+        return result;
+    }
+
+    bool isEmpty() {
+        return inStack.isEmpty() == 0;
+    }
+
 	private:
 
     //Stack to hold the data.
@@ -80,5 +98,7 @@ int main() {
     std::cout << "Removing oldest element: " << queue.remove() << std::endl;
     std::cout << "Queue is: ";
 	queue.print();
+    std::cout << "Top element is: " << queue.peek() << std::endl;
+    std::cout << "Is the queue empty? " << (queue.isEmpty() ? "true" : "false") << std::endl;
 	return 0;
 }
