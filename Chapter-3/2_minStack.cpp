@@ -13,11 +13,16 @@ class minStack : public StackBase {
     void push(int data) {
     	stack.StackBase::push(data);
     	//If new element is new minimum add it to min stack if not add old min to minstack.
-    	if(data < minStack.peek() || minStack.peek() == 0) {
-    		minStack.StackBase::push(data);
+    	if(!isEmpty()) {
+    		if(data < minStack.peek() || minStack.peek() == 0) {
+    			minStack.StackBase::push(data);
+    		} else {
+    			minStack.StackBase::push(minStack.peek());
+    		}
     	} else {
-    		minStack.StackBase::push(minStack.peek());
+    		minStack.StackBase::push(data);
     	}
+    	
     }
 
     void print() {

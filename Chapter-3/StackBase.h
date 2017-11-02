@@ -8,11 +8,11 @@ class StackBase : public LinkedListBase {
 public:
     
     StackBase();
-    void init(int n[], int num);
-    void push(int data);
-    int pop();
-    int peek();
-    bool isEmpty();
+    virtual void init(int n[], int num);
+    virtual void push(int data);
+    virtual int pop();
+    virtual int peek();
+    virtual bool isEmpty();
 
 };
 
