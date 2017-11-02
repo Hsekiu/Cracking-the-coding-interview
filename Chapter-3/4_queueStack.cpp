@@ -69,7 +69,7 @@ class myQueue : public StackBase {
     }
 
     bool isEmpty() {
-        return inStack.isEmpty() == 0;
+        return inStack.isEmpty();
     }
 
 	private:

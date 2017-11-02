@@ -11,23 +11,25 @@ class minStack : public StackBase {
     public:
 
     void push(int data) {
-    	stack.StackBase::push(data);
+    	stack.push(data);
     	//If new element is new minimum add it to min stack if not add old min to minstack.
-    	if(!isEmpty()) {
+    	if(!minStack.isEmpty()) {
     		if(data < minStack.peek() || minStack.peek() == 0) {
-    			minStack.StackBase::push(data);
+    			minStack.push(data);
     		} else {
-    			minStack.StackBase::push(minStack.peek());
+    			minStack.push(minStack.peek());
     		}
     	} else {
-    		minStack.StackBase::push(data);
+    		minStack.push(data);
     	}
     	
     }
 
     void print() {
-    	stack.StackBase::print();
-    	minStack.StackBase::print();
+        std::cout << "Stack is: ";
+    	stack.print();
+        std::cout << "Stack of mins is: ";
+    	minStack.print();
     }
 
     int pop() {
