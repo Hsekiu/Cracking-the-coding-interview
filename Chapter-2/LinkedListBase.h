@@ -19,11 +19,11 @@ public:
 
     LinkedListBase();
     void addVal(T n);
-    void init(T n[], int num);
+    void init(T n[]);
     void print();
     //node<T>* getHead();
     //node<T>* getTail();
-    void removeDupe();
+    //void removeDupe();
     //node<T>* nthLast(int n);
     //void delMiddle(node<T> *middle);
     //node<T>* getLoop();

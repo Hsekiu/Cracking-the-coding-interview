@@ -23,7 +23,9 @@ void LinkedListBase<T>::addVal(T n) {
 }
 
 template<class T>
-void LinkedListBase<T>::init(T n[], int num) {
+void LinkedListBase<T>::init(T n[]) {
+    int num = sizeof(n)/sizeof(n[0]) - 1;
+
     for(int i = 0; i < num; i++) {
         addVal(n[i]);
     }
@@ -31,7 +33,7 @@ void LinkedListBase<T>::init(T n[], int num) {
 template<class T>
 void LinkedListBase<T>::print() {
     node *tmp = head;
-    while(tmp != nullptr) {
+    while(tmp) {
         std::cout << "," << tmp->data;
         tmp = tmp->next;
     }
@@ -46,9 +48,9 @@ LinkedListBase::node* LinkedListBase::getTail() {
     return tail;
 }
 */
-template<class T>
-void LinkedListBase<T>::removeDupe() {
-}
+//template<class T>
+//void LinkedListBase<T>::removeDupe() {
+//}
 /*
 LinkedListBase::node* LinkedListBase::nthLast(int n) {
     return nullptr;

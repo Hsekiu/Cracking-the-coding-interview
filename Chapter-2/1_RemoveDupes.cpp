@@ -14,7 +14,7 @@ class LinkedListExtension : public LinkedListBase<T> {
         typename LinkedListBase<T>::node *prev = nullptr;
 
         //Go through linked list while next node is not null.
-        while(curr != nullptr) {
+        while(curr) {
             //If node in hash table it is not unique thus set pointer to next element.
             if(mymap[curr->data]) {
                 typename LinkedListBase<T>::node *tmp = curr;
@@ -35,7 +35,7 @@ int main() {
     LinkedListExtension<char> list;
     
     char data[] = {'a', 'd', 'e', 'f', 'a', 'c'};
-    list.init(data, sizeof(data)/sizeof(data[0]));
+    list.init(data);
 
     list.print();
     list.removeDupe();
