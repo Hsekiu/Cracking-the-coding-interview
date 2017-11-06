@@ -1,24 +1,26 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 #include <unordered_map>
 
-class LinkedListExtension : public LinkedListBase {
+template<class T>
+class LinkedListExtension : public LinkedListBase<T> {
     public:
 
     void removeDupe() {
         //Hash table to store each value occurence.
         std::unordered_map<int, bool> mymap;
-        
-        node *curr = head;
-        node *prev = nullptr;
+
+        typename LinkedListBase<T>::node *curr = LinkedListBase<T>::head;
+        typename LinkedListBase<T>::node *prev = nullptr;
 
         //Go through linked list while next node is not null.
         while(curr != nullptr) {
             //If node in hash table it is not unique thus set pointer to next element.
             if(mymap[curr->data]) {
-                node *tmp = curr;
+                typename LinkedListBase<T>::node *tmp = curr;
                 prev->next = curr->next;
                 delete(tmp);
-                size--;
+                LinkedListBase<T>::size--;
             //If is unique set it to true in table.
             } else {
                 mymap[curr->data] = true;
@@ -30,9 +32,9 @@ class LinkedListExtension : public LinkedListBase {
 };
 
 int main() {
-    LinkedListExtension list;
+    LinkedListExtension<char> list;
     
-    int data[] = {5, 10 ,15, 5, 1, 4};
+    char data[] = {'a', 'd', 'e', 'f', 'a', 'c'};
     list.init(data, sizeof(data)/sizeof(data[0]));
 
     list.print();

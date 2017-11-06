@@ -1,12 +1,14 @@
 #include "LinkedListBase.h"
 
-LinkedListBase::LinkedListBase() {
+template<class T>
+LinkedListBase<T>::LinkedListBase() {
     head = NULL;
     tail = NULL;
     size = 0;
 }
 
-void LinkedListBase::addVal(int n) {
+template<class T>
+void LinkedListBase<T>::addVal(T n) {
     node *NewNode = new node();
     NewNode->data = n;
     NewNode->next = NULL;
@@ -20,13 +22,14 @@ void LinkedListBase::addVal(int n) {
     size++;
 }
 
-void LinkedListBase::init(int n[], int num) {
+template<class T>
+void LinkedListBase<T>::init(T n[], int num) {
     for(int i = 0; i < num; i++) {
         addVal(n[i]);
     }
 }
-
-void LinkedListBase::print() {
+template<class T>
+void LinkedListBase<T>::print() {
     node *tmp = head;
     while(tmp != nullptr) {
         std::cout << "," << tmp->data;
@@ -34,7 +37,7 @@ void LinkedListBase::print() {
     }
     std::cout << std::endl;
 }
-
+/*
 LinkedListBase::node* LinkedListBase::getHead() {
     return head;
 }
@@ -42,10 +45,11 @@ LinkedListBase::node* LinkedListBase::getHead() {
 LinkedListBase::node* LinkedListBase::getTail() {
     return tail;
 }
-
-void LinkedListBase::removeDupe() {
+*/
+template<class T>
+void LinkedListBase<T>::removeDupe() {
 }
-
+/*
 LinkedListBase::node* LinkedListBase::nthLast(int n) {
     return nullptr;
 }
@@ -75,4 +79,4 @@ bool LinkedListBase::updateTail() {
         tmp = tmp->next;
     }
     tail = tmp;
-}
+}*/

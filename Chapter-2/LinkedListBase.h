@@ -5,30 +5,31 @@
 #include <iostream>
 #include <stdexcept>
 
+template<class T>
 class LinkedListBase {
 
 public:
 
     struct node {
-        int data;
+        T data;
         node *next;
     };
     
     int size;
 
     LinkedListBase();
-    void addVal(int n);
-    void init(int n[], int num);
+    void addVal(T n);
+    void init(T n[], int num);
     void print();
-    node* getHead();
-    node* getTail();
+    //node<T>* getHead();
+    //node<T>* getTail();
     void removeDupe();
-    node* nthLast(int n);
-    void delMiddle(node *middle);
-    node* getLoop();
-    void addHead(int n);
-    bool isPalindrome();
-    bool updateTail();
+    //node<T>* nthLast(int n);
+    //void delMiddle(node<T> *middle);
+    //node<T>* getLoop();
+    //void addHead(T n);
+    //bool isPalindrome();
+    //bool updateTail();
     
 protected:
 
