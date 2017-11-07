@@ -14,19 +14,20 @@ class LinkedListExtension : public LinkedListBase<T> {
         typename LinkedListBase<T>::node *prev = nullptr;
 
         //Go through linked list while next node is not null.
-        while(curr) {
+        while(curr != NULL) {
             //If node in hash table it is not unique thus set pointer to next element.
             if(mymap[curr->data]) {
                 typename LinkedListBase<T>::node *tmp = curr;
                 prev->next = curr->next;
+                curr = curr->next;
                 delete(tmp);
                 LinkedListBase<T>::size--;
             //If is unique set it to true in table.
             } else {
                 mymap[curr->data] = true;
                 prev = curr;
+                curr = curr->next;
             }
-            curr = curr->next;
         }
     }
 };
@@ -35,7 +36,7 @@ int main() {
     LinkedListExtension<char> list;
     
     char data[] = {'a', 'd', 'e', 'f', 'a', 'c'};
-    list.init(data);
+    list.init(data, sizeof(data)/sizeof(data[0]));
 
     list.print();
     list.removeDupe();

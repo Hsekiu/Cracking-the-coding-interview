@@ -23,17 +23,16 @@ void LinkedListBase<T>::addVal(T n) {
 }
 
 template<class T>
-void LinkedListBase<T>::init(T n[]) {
-    int num = sizeof(n)/sizeof(n[0]) - 1;
-
-    for(int i = 0; i < num; i++) {
+void LinkedListBase<T>::init(T n[], int num) {
+    int size = num;
+    for(int i = 0; i < size; i++) {
         addVal(n[i]);
     }
 }
 template<class T>
 void LinkedListBase<T>::print() {
     node *tmp = head;
-    while(tmp) {
+    for(int i = 0; i < size; i++) {
         std::cout << "," << tmp->data;
         tmp = tmp->next;
     }

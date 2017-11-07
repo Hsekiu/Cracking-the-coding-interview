@@ -19,7 +19,7 @@ public:
 
     LinkedListBase();
     void addVal(T n);
-    void init(T n[]);
+    void init(T n[], int num);
     void print();
     //node<T>* getHead();
     //node<T>* getTail();
