@@ -1,11 +1,13 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 
-LinkedListBase* partition(LinkedListBase* list1, int n) {
+template<class T>
+LinkedListBase<T>* partition(LinkedListBase<T>* list1, T n) {
     //Start consists of values less then n and end greater then n.
-    LinkedListBase* start = new LinkedListBase;
-    LinkedListBase* end = new LinkedListBase;
+    LinkedListBase<T>* start = new LinkedListBase<T>;
+    LinkedListBase<T>* end = new LinkedListBase<T>;
     
-    LinkedListBase::node* tmp = list1->getHead();
+    typename LinkedListBase<T>::node* tmp = list1->getHead();
     
     while(tmp != nullptr) {
         if(tmp->data < n) {
@@ -15,16 +17,19 @@ LinkedListBase* partition(LinkedListBase* list1, int n) {
         }
         tmp = tmp->next;
     }
-    
-    //Add the end of the start to the start of end.
-    start->getTail()->next = end->getHead();
+
+    tmp = end->getHead();
+    while(tmp != nullptr) {
+        start->addVal(tmp->data);
+        tmp = tmp->next;
+    }
     
     delete(end);
     return start;
 }
 
 int main() {
-    LinkedListBase* list = new LinkedListBase;
+    LinkedListBase<int>* list = new LinkedListBase<int>;
     
     int data[] = {1, 4, 3, 2, 5, 2};
     list->init(data, sizeof(data)/sizeof(data[0]));

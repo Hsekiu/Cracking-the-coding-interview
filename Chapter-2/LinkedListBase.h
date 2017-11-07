@@ -21,14 +21,9 @@ public:
     void addVal(T n);
     void init(T n[], int num);
     void print();
-    //node<T>* getHead();
-    //node<T>* getTail();
-    //void removeDupe();
-    //node<T>* nthLast(int n);
-    //void delMiddle(node<T> *middle);
-    //node<T>* getLoop();
+    node* getHead();
+    node* getTail();
     //void addHead(T n);
-    //bool isPalindrome();
     //bool updateTail();
     
 protected:

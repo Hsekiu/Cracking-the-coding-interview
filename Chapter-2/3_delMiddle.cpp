@@ -1,24 +1,26 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 
-class LinkedListExtension : public LinkedListBase {
+template<class T>
+class LinkedListExtension : public LinkedListBase<T> {
     public:
 
     //Since we can't get the previous node's next pointer we must delete
    	//a node that is not this one thus replace all data with the next node
     //and delete that one.
-    void delMiddle(node *middle) {
+    void delMiddle(typename LinkedListBase<T>::node *middle) {
     	if(middle != nullptr || middle->next != nullptr) {
-    		node *tmp = middle->next;
+    		typename LinkedListBase<T>::node *tmp = middle->next;
         	middle->data = middle->next->data;
         	middle->next = middle->next->next;
         	delete(tmp);
-        	size--;
+        	LinkedListBase<T>::size--;
     	}
     }
 };
 
 int main() {
-    LinkedListExtension list;
+    LinkedListExtension<int> list;
     
     int data[] = {5, 10 ,15, 5, 1, 4};
     list.init(data, sizeof(data)/sizeof(data[0]));

@@ -38,29 +38,17 @@ void LinkedListBase<T>::print() {
     }
     std::cout << std::endl;
 }
-/*
-LinkedListBase::node* LinkedListBase::getHead() {
+
+template<class T>
+typename LinkedListBase<T>::node* LinkedListBase<T>::getHead() {
     return head;
 }
 
-LinkedListBase::node* LinkedListBase::getTail() {
+template<class T>
+typename LinkedListBase<T>::node* LinkedListBase<T>::getTail() {
     return tail;
 }
-*/
-//template<class T>
-//void LinkedListBase<T>::removeDupe() {
-//}
 /*
-LinkedListBase::node* LinkedListBase::nthLast(int n) {
-    return nullptr;
-}
-
-void LinkedListBase::delMiddle(node *middle) {
-}
-
-LinkedListBase::node* LinkedListBase::getLoop() {
-}
-
 void LinkedListBase::addHead(int n) {
     node *NewNode = new node();
     NewNode->data = n;
@@ -69,9 +57,6 @@ void LinkedListBase::addHead(int n) {
     if(size == 0) {
         tail = head;
     }
-}
-
-bool LinkedListBase::isPalindrome() {
 }
 
 bool LinkedListBase::updateTail() {
