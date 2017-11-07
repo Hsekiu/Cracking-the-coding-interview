@@ -1,13 +1,15 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 #include <unordered_map>
 
-class LinkedListExtension : public LinkedListBase {
+template<class T>
+class LinkedListExtension : public LinkedListBase<T> {
     public:
 
-    node* nthLast(int nth) {
+    typename LinkedListBase<T>::node* nthLast(int nth) {
         //Since linked list implementation has size find the pos of nth to last element.
-        int pos = (size - nth + 1);
-        node *tmp = head;
+        int pos = (LinkedListBase<T>::size - nth + 1);
+        typename LinkedListBase<T>::node *tmp = LinkedListBase<T>::head;
         int count = 1;
         
         //Go through linked list till nth to last element is hit
@@ -24,7 +26,7 @@ class LinkedListExtension : public LinkedListBase {
 };
 
 int main() {
-    LinkedListExtension list;
+    LinkedListExtension<int> list;
     
     int data[] = {5, 10 ,15, 5, 1, 4};
     list.init(data, sizeof(data)/sizeof(data[0]));
