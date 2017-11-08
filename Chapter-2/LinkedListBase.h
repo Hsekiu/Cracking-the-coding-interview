@@ -23,8 +23,8 @@ public:
     void print();
     node* getHead();
     node* getTail();
-    //void addHead(T n);
-    //bool updateTail();
+    void addHead(T n);
+    bool updateTail();
     
 protected:
 

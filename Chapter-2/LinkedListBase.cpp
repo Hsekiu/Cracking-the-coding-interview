@@ -48,8 +48,9 @@ template<class T>
 typename LinkedListBase<T>::node* LinkedListBase<T>::getTail() {
     return tail;
 }
-/*
-void LinkedListBase::addHead(int n) {
+
+template<class T>
+void LinkedListBase<T>::addHead(T n) {
     node *NewNode = new node();
     NewNode->data = n;
     NewNode->next = head;
@@ -59,10 +60,11 @@ void LinkedListBase::addHead(int n) {
     }
 }
 
-bool LinkedListBase::updateTail() {
+template<class T>
+bool LinkedListBase<T>::updateTail() {
     node *tmp = head;
     while(tmp->next != nullptr) {
         tmp = tmp->next;
     }
     tail = tmp;
-}*/
+}

@@ -1,12 +1,14 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 
-LinkedListBase* addLists(LinkedListBase* list1, LinkedListBase *list2) {
+template<class T>
+LinkedListBase<T>* addLists(LinkedListBase<T>* list1, LinkedListBase<T> *list2) {
     // Create nodes to traverse the list with.
-    LinkedListBase::node* l1 = list1->getHead();
-    LinkedListBase::node* l2 = list2->getHead();
+    typename LinkedListBase<T>::node* l1 = list1->getHead();
+    typename LinkedListBase<T>::node* l2 = list2->getHead();
     int val = 0, carry = 0;
     
-    LinkedListBase* result = new LinkedListBase;
+    LinkedListBase<T>* result = new LinkedListBase<T>;
     
     // While neither list is empty loop.
     while(l1 != nullptr || l2 != nullptr) {
@@ -32,8 +34,8 @@ LinkedListBase* addLists(LinkedListBase* list1, LinkedListBase *list2) {
 }
 
 int main() {
-    LinkedListBase* list1 = new LinkedListBase;
-    LinkedListBase* list2 = new LinkedListBase;
+    LinkedListBase<int>* list1 = new LinkedListBase<int>;
+    LinkedListBase<int>* list2 = new LinkedListBase<int>;
     
     int data1[] = {1, 2 ,3, 4, 5, 6};
     list1->init(data1, sizeof(data1)/sizeof(data1[0]));
@@ -41,7 +43,7 @@ int main() {
     int data2[] = {1, 2 ,3, 4, 5, 6};
     list2->init(data2, sizeof(data2)/sizeof(data2[0]));
 
-    LinkedListBase* list3 = addLists(list1, list2);
+    LinkedListBase<int>* list3 = addLists(list1, list2);
     
     std::cout << "List1 is: ";
     list1->print();
