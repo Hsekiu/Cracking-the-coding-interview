@@ -1,38 +1,44 @@
 #include "StackBase.h"
 
-StackBase::StackBase() {
+template<class T>
+StackBase<T>::StackBase() {
 }
 
-void StackBase::init(int n[], int num) {
+template<class T>
+void StackBase<T>::init(T n[], int num) {
     for(int i = 0; i < num; i++) {
         addHead(n[i]);
     }
 }
 
-void StackBase::push(int data) {
+template<class T>
+void StackBase<T>::push(T data) {
 	addHead(data);
 }
 
-int StackBase::pop() {
-	if(head == nullptr) {
+template<class T>
+T StackBase<T>::pop() {
+	if(LinkedListBase<T>::head == nullptr) {
 		throw std::logic_error("Cannot pop an empty Stack.");
 	}
 
-	node *tmp = head;
-	int result = head->data;
-	head = head->next;
+	typename LinkedListBase<T>::node *tmp = LinkedListBase<T>::head;
+	int result = LinkedListBase<T>::head->data;
+	LinkedListBase<T>::head = LinkedListBase<T>::head->next;
 
 	return result;
 }
 
-int StackBase::peek() {
-	if(head != NULL) {
-		return head->data;
+template<class T>
+T StackBase<T>::peek() {
+	if(LinkedListBase<T>::head != NULL) {
+		return LinkedListBase<T>::head->data;
 	} else {
 		 throw std::logic_error("Cannot peek an empty Stack.");
 	}
 }
 
-bool StackBase::isEmpty() {
-	return head == nullptr;
+template<class T>
+bool StackBase<T>::isEmpty() {
+	return LinkedListBase<T>::head == nullptr;
 }
