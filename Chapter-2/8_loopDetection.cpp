@@ -1,14 +1,16 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 #include <unordered_map>
 
-class LinkedListExtension : public LinkedListBase {
+template<class T>
+class LinkedListExtension : public LinkedListBase<T> {
     public:
 
-    node* getLoop() {
+    typename LinkedListBase<T>::node* getLoop() {
         //Create hash table of visited nodes.
-        std::unordered_map<LinkedListBase::node*, bool> mymap;
+        std::unordered_map<typename LinkedListBase<T>::node*, bool> mymap;
 
-        LinkedListBase::node* tmp = head;
+        typename LinkedListBase<T>::node* tmp = LinkedListBase<T>::head;
         //Go throught list, if node has not been seen add to hash table if it has return loop.
         //If list is normal it will naturally terminate with nullptr.
         while(tmp != nullptr) {
@@ -27,18 +29,19 @@ class LinkedListExtension : public LinkedListBase {
 int main() {
     
     //Create normal list and initialize it with data.
-    LinkedListExtension* list = new LinkedListExtension;
+    LinkedListExtension<int>* list = new LinkedListExtension<int>;
     int data[] = {1, 2, 3, 4, 5};
     list->init(data, sizeof(data)/sizeof(data[0]));
     list->print();
 
+    std::cout << "Made list loop at 3" << std::endl;
     //Make the list loop at 3.
-    LinkedListExtension::node* l1 = list->getHead();
+    typename LinkedListBase<int>::node* l1 = list->getHead();
     l1 = l1->next->next;
-    LinkedListExtension::node* l2 = list->getTail();
+    typename LinkedListBase<int>::node* l2 = list->getTail();
     l2->next = l1;
 
-    LinkedListExtension::node * l3 = list->getLoop();
+    typename LinkedListBase<int>::node* l3 = list->getLoop();
     if(l3 != nullptr) {
         int result = l3->data;
         std::cout << "Loop detected in: " << result << std::endl;

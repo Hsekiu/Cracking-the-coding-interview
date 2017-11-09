@@ -1,4 +1,5 @@
 #include "LinkedListBase.h"
+#include "LinkedListBase.cpp"
 
 /*
     Assume that the intersection only happens at the end of a list and that all elements are
@@ -7,7 +8,9 @@
     same node and thus must be intersecting.
     
 */
-bool isIntersection(LinkedListBase* list1, LinkedListBase* list2) {
+
+template<class T>
+bool isIntersection(LinkedListBase<T>* list1, LinkedListBase<T>* list2) {
     if(list1->getTail() == list2->getTail()) {
         return true;
     } else {
@@ -17,10 +20,10 @@ bool isIntersection(LinkedListBase* list1, LinkedListBase* list2) {
 
 int main() {
     
-    LinkedListBase* list1 = new LinkedListBase;
-    LinkedListBase* list2 = new LinkedListBase;
-    LinkedListBase* list3 = new LinkedListBase;
-    LinkedListBase* list4 = new LinkedListBase;
+    LinkedListBase<int>* list1 = new LinkedListBase<int>;
+    LinkedListBase<int>* list2 = new LinkedListBase<int>;
+    LinkedListBase<int>* list3 = new LinkedListBase<int>;
+    LinkedListBase<int>* list4 = new LinkedListBase<int>;
     
     int data1[] = {1, 2};
     list1->init(data1, sizeof(data1)/sizeof(data1[0]));
