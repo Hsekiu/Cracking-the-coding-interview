@@ -58,6 +58,7 @@ void LinkedListBase<T>::addHead(T n) {
     if(size == 0) {
         tail = head;
     }
+    size++;
 }
 
 template<class T>

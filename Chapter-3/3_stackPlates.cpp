@@ -1,4 +1,5 @@
 #include "StackBase.h"
+#include "StackBase.cpp"
 #include <vector>
 
 /*
@@ -10,7 +11,8 @@
 	stacks which can lead to errors.
 */
 
-class stackPlates : public StackBase {
+template<class T>
+class stackPlates : public StackBase<T> {
     public:
 
     //Maximum size of each plate structure.
@@ -18,7 +20,7 @@ class stackPlates : public StackBase {
 
     //Stack doesn't hold size information thus made a struct to hold the information.
     struct plate {
-        StackBase stack;
+        StackBase<T> stack;
         int size;
     };
 
@@ -27,13 +29,13 @@ class stackPlates : public StackBase {
     	threshold = 4;
     }
 
-    void init(int n[], int num) {
+    void init(T n[], int num) {
     	for(int i = 0; i < num; i++) {
         	push(n[i]);
     	}
 	}
 
-    void push(int data) {
+    void push(T data) {
     	//Current plate size is lower then threshold thus push to that stack.
     	if(stackSet.back().size < threshold) {
     		stackSet.back().stack.push(data);
@@ -52,7 +54,7 @@ class stackPlates : public StackBase {
 		}
     }
 
-    int pop() {
+    T pop() {
     	//If last element of plate return that element and pop the plate.
     	if(stackSet.back().size <= 1) {
     		int result = stackSet.back().stack.pop();
@@ -64,7 +66,7 @@ class stackPlates : public StackBase {
     	}
     }
 
-    int pop(int n) {
+    T pop(int n) {
     	if(stackSet[n].size <= 1) {
     		int result = stackSet[n].stack.pop();
     		stackSet.erase(stackSet.begin() + n);
@@ -83,7 +85,7 @@ class stackPlates : public StackBase {
 
 int main() {
 
-	stackPlates stack;
+	stackPlates<int> stack;
 	int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 	stack.init(data, sizeof(data)/sizeof(int));
 	stack.push(12);

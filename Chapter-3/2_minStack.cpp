@@ -1,4 +1,5 @@
 #include "StackBase.h"
+#include "StackBase.cpp"
 
 /*
 	Keep another stack that is updated alongside the data stack but consists of the
@@ -7,10 +8,11 @@
 	one at that point.
 */
 
-class minStack : public StackBase {
+template<class T>
+class minStack : public StackBase<T> {
     public:
 
-    void push(int data) {
+    void push(T data) {
     	stack.push(data);
     	//If new element is new minimum add it to min stack if not add old min to minstack.
     	if(!minStack.isEmpty()) {
@@ -27,30 +29,30 @@ class minStack : public StackBase {
 
     void print() {
         std::cout << "Stack is: ";
-    	stack.print();
+    	stack.LinkedListBase<T>::print();
         std::cout << "Stack of mins is: ";
-    	minStack.print();
+    	minStack.LinkedListBase<T>::print();
     }
 
-    int pop() {
+    T pop() {
     	minStack.pop();
     	return stack.pop();
     }
 
-    int getMin() {
+    T getMin() {
     	return minStack.peek();
     }
 
 	private:
 
-	StackBase stack;
+	StackBase<T> stack;
 	//Stack of mins at those positions in stack.
-	StackBase minStack;
+	StackBase<T> minStack;
 };
 
 int main() {
 
-	minStack stack;
+	minStack<int> stack;
 	stack.push(3);
 	stack.push(7);
 	stack.push(5);

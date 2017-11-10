@@ -1,4 +1,5 @@
 #include "StackBase.h"
+#include "StackBase.cpp"
 
 /*
     To make a Queue using two stacks use one to hold the data and the other as
@@ -8,11 +9,12 @@
     push all the data back.
 */
 
-class myQueue : public StackBase {
+template<class T>
+class myQueue : public StackBase<T> {
 
     public:
 
-    void init(int n[], int num) {
+    void init(T n[], int num) {
         inStack.init(n, num);
         size = num;
     }
@@ -22,7 +24,7 @@ class myQueue : public StackBase {
         size++;
     }
 
-    int remove() {
+    T remove() {
         size--;
 
         //Loop through the stack and push all but the last element to the working stack.
@@ -30,7 +32,7 @@ class myQueue : public StackBase {
             outStack.push(inStack.pop());
         }
         //Remove the last element.
-        int result = inStack.pop();
+        T result = inStack.pop();
 
         //Transfer data back from working stack to data stack.
         for(int i = 0; i < size; i++) {
@@ -54,12 +56,12 @@ class myQueue : public StackBase {
         }
     }
 
-    int peek() {
+    T peek() {
         for(int i = 0; i < size; i++) {
             outStack.push(inStack.pop());
         }
 
-        int result = outStack.peek();
+        T result = outStack.peek();
 
         for(int i = 0; i < size; i++) {
             inStack.push(outStack.pop());
@@ -75,22 +77,22 @@ class myQueue : public StackBase {
 	private:
 
     //Stack to hold the data.
-	StackBase inStack;
+	StackBase<T> inStack;
     //Temp working stack.
-    StackBase outStack;
+    StackBase<T> outStack;
     int size;
 
 };
 
 int main() {
 
-	myQueue queue;
-	int data[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-	queue.init(data, sizeof(data)/sizeof(int));
+	myQueue<char> queue;
+	char data[] = {'a','z','d','e'};
+	queue.init(data, sizeof(data)/sizeof(char));
 	std::cout << "Queue is: ";
     queue.print();
-    std::cout << "Adding 12 to Queue: ";
-    queue.add(12);
+    std::cout << "Adding y to Queue: ";
+    queue.add('y');
     queue.print();
     std::cout << "Removing oldest element: " << queue.remove() << std::endl;
     std::cout << "Removing oldest element: " << queue.remove() << std::endl;

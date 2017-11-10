@@ -25,6 +25,7 @@ T StackBase<T>::pop() {
 	typename LinkedListBase<T>::node *tmp = LinkedListBase<T>::head;
 	int result = LinkedListBase<T>::head->data;
 	LinkedListBase<T>::head = LinkedListBase<T>::head->next;
+	LinkedListBase<T>::size--;
 
 	return result;
 }
