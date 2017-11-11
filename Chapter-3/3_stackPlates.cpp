@@ -57,7 +57,7 @@ class stackPlates : public StackBase<T> {
     T pop() {
     	//If last element of plate return that element and pop the plate.
     	if(stackSet.back().size <= 1) {
-    		int result = stackSet.back().stack.pop();
+    		T result = stackSet.back().stack.pop();
     		stackSet.pop_back();
     		return result;
     	} else {
@@ -68,7 +68,7 @@ class stackPlates : public StackBase<T> {
 
     T pop(int n) {
     	if(stackSet[n].size <= 1) {
-    		int result = stackSet[n].stack.pop();
+    		T result = stackSet[n].stack.pop();
     		stackSet.erase(stackSet.begin() + n);
     		return result;
     	} else {
